@@ -1,0 +1,44 @@
+.banner {
+    position: relative;
+    text-align: center;
+  }
+  
+  .background-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .logo-container.loading .round-logo {
+    opacity: 0.5;
+    animation: blink 1.5s step-end 3;
+  }
+  
+  .round-logo {
+    width: 190px; /* Adjust width and height as needed */
+    height: 190px;
+    border-radius: 50%;
+    transition: opacity 0.3s;
+    object-fit: cover;
+    background-color: white;
+  }
+  
+  .blink-animation {
+    animation: blink 1.5s step-end 3;
+  }
+  
+  @keyframes blink {
+    0%, 49% {
+      opacity: 1;
+    }
+    50%, 100% {
+      opacity: 0;
+    }
+  }
+  

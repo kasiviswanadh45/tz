@@ -1,0 +1,65 @@
+<div *ngIf="userProfile" class="profile-container">
+  <!-- Close Icon -->
+  <mat-card>
+    <button mat-icon-button class="close-icon" aria-label="Close" (click)="closeProfile()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <h2 class="profile-heading">User Profile</h2>
+    <div class="profile-picture-container">
+      <img [src]="imagePreview || userProfile.profilePicture" alt="Profile Picture" class="profile-picture" />
+      <button mat-icon-button class="edit-icon" aria-label="Edit Profile Picture" (click)="triggerFileInput()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <input type="file" id="profilePictureInput" (change)="onImageSelected($event)" />
+    </div>
+
+    <!-- All fields side by side -->
+    <div class="fields-container">
+      <mat-form-field class="profile-field" appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput id="firstName" type="text" [(ngModel)]="userProfile.firstName" />
+      </mat-form-field>
+
+      <!-- Swap the email and last name fields -->
+      <mat-form-field class="profile-field" appearance="outline">
+        <mat-label>lastname</mat-label>
+        <input matInput id="lastName" type="text" [(ngModel)]="userProfile.email" />
+      </mat-form-field>
+
+      <mat-form-field class="profile-field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput id="email" type="email" [(ngModel)]="userProfile.lastName" />
+      </mat-form-field>
+
+      <mat-form-field class="profile-field" appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput id="mobile" type="text" [(ngModel)]="userProfile.mobileNumber" />
+      </mat-form-field>
+
+      <mat-form-field class="profile-field" appearance="outline">
+        <mat-label>Location</mat-label>
+        <input matInput id="location" type="text" [(ngModel)]="userProfile.location" />
+      </mat-form-field>
+
+      <!-- Language Dropdown -->
+      <mat-form-field class="profile-field" appearance="outline">
+        <mat-label>Preferred Language</mat-label>
+        <mat-select [(ngModel)]="userProfile.preferredLanguage">
+          <mat-option value="English">English</mat-option>
+          <mat-option value="Telugu">Telugu</mat-option>
+          <mat-option value="Hindi">Hindi</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="saveProfile()">Save Profile</button>
+    </div>
+  </mat-card>
+</div>
+
+<div *ngIf="!userProfile" class="loading-container">
+  <mat-spinner></mat-spinner>
+  <p>Loading user profile...</p>
+</div>

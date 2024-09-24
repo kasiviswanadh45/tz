@@ -1,0 +1,59 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+  <div class="logo-container">
+    <img src="assets/images/LOGO_02.png" alt="Logo" class="logo" />
+    <span class="title">TazaDara</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="navbar-dropdowns" *ngIf="dropdownsVisible">
+    <mat-form-field appearance="fill" class="loc state-dropdown">
+      <mat-label>State</mat-label>
+      <mat-select (selectionChange)="onStateChange($event.value)" [value]="selectedState">
+        <mat-option *ngFor="let state of states" [value]="state.stateId">
+          {{ state.stateName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="loc district-dropdown">
+      <mat-label>District</mat-label>
+      <mat-select (selectionChange)="onDistrictChange($event.value)" [disabled]="!selectedState" [value]="selectedDistrict">
+        <mat-option *ngFor="let district of districts" [value]="district.districtId">
+          {{ district.districtName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="loc area-dropdown">
+      <mat-label>Area</mat-label>
+      <mat-select (selectionChange)="onAreaChange($event.value)" [disabled]="!selectedDistrict" [value]="selectedArea">
+        <mat-option *ngFor="let area of areas" [value]="area.areaId">
+          {{ area.areaName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+
+  <span class="spacer"></span>
+
+  <!-- Authentication Section -->
+  <div *ngIf="currentUser$ | async as currentUser">
+    <!-- Profile Dropdown -->
+    <button mat-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon>person</mat-icon>
+      {{ currentUser }}
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item (click)="openUserProfileDialog()">Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </div>
+  <div *ngIf="!(currentUser$ | async)">
+    <button class="buttonnew" mat-button (click)="openLoginDialog()">Login</button>
+    
+  </div>
+
+ 
+</mat-toolbar>

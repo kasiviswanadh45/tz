@@ -1,0 +1,64 @@
+<mat-card class="signup-card">
+  <mat-card-header>
+    <mat-card-title class="dialog-title">Signup</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>First Name</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput placeholder="Enter your first name" formControlName="firstName" required>
+          <mat-error *ngIf="signupForm.get('firstName')?.hasError('required')">First name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Last Name</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput placeholder="Enter your last name" formControlName="lastName" required>
+          <mat-error *ngIf="signupForm.get('lastName')?.hasError('required')">Last name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput placeholder="Enter your email" formControlName="email" type="email" required>
+          <mat-error *ngIf="signupForm.get('email')?.hasError('required')">Email is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Mobile Number</mat-label>
+          <mat-icon matPrefix>phone</mat-icon>
+          <input matInput placeholder="Enter your mobile number" formControlName="mobileNumber" required>
+          <mat-error *ngIf="signupForm.get('mobileNumber')?.hasError('required')">Mobile number is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Enter password" formControlName="password" required>
+          <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="signupForm.get('password')?.hasError('required')">Password is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Confirm Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Confirm password" formControlName="confirmPassword" required>
+          <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">Confirm password is required</mat-error>
+          <mat-error *ngIf="passwordsMatchError">Passwords do not match</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Submit Button -->
+      <div mat-card-actions class="dialog-actions">
+        <button mat-raised-button color="primary" type="submit">Signup</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,75 @@
+<div class="admin-dashboard">
+    <mat-sidenav-container class="sidenav-container">
+  
+      <!-- Sidebar Navigation -->
+      <mat-sidenav #sidenav mode="over" class="sidenav">
+        <div class="sidenav-header">
+          <img src="assets/images/LOGO_02.png" alt="Logo" class="logo">
+          <button mat-icon-button class="close-icon" (click)="sidenav.close()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <mat-nav-list>
+          <!-- <a mat-list-item (click)="navigateTo('dashboard')">Dashboard</a> -->
+          <!-- <a mat-list-item (click)="navigateTo('users')">Manage Users</a> -->
+          <a mat-list-item (click)="navigateTo('/productform')">Add Product</a><hr>
+          <a mat-list-item (click)="navigateTo('/getproduct')">Get All Products</a><hr>
+          <a mat-list-item (click)="navigateTo('/upload')">Upload Data</a><hr>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <!-- Toolbar and Main Content -->
+      <mat-sidenav-content>
+        <mat-toolbar color="primary" class="toolbar">
+          <button mat-icon-button (click)="sidenav.toggle()" class="hamburger-icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>Admin Dashboard</span>
+          <span class="spacer"></span>
+          <button mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+          </button>
+        </mat-toolbar>
+  
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+          <div class="card-container">
+            
+            <!-- Manage Users Card -->
+            <!-- <div class="card" (click)="navigateTo('users')">
+              <div class="card-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="card-title">Manage Users</div>
+            </div> -->
+            <div class="card" (click)="navigateTo('/productform')"> <!-- Add Product dialog trigger -->
+              <div class="card-icon">
+                <i class="fas fa-plus"></i>
+              </div>
+              <div class="card-title">Add Product</div>
+            </div>
+  
+            <!-- Manage Products Card -->
+            <div class="card" (click)="navigateTo('/getproduct')">
+              <div class="card-icon">
+                <i class="fas fa-boxes"></i>
+              </div>
+              <div class="card-title">Manage Products</div>
+            </div>
+  
+            <!-- Upload Data Card -->
+            <div class="card" (click)="navigateTo('/upload')">
+              <div class="card-icon">
+                <i class="fas fa-upload"></i>
+              </div>
+              <div class="card-title">Upload Data</div>
+            </div>
+          </div>
+        </div>
+        <button mat-fab class="home-button" (click)="navigateTo('/')">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

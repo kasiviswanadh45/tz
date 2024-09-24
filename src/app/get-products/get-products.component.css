@@ -1,0 +1,153 @@
+/* Dialog Header Styling */
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.close-button {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+/* Table Container */
+.table-container {
+  margin: 20px 0;
+  padding: 0 30px; /* Increased padding */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+th.mat-header-cell {
+  background-color: #e0f7fa;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+}
+
+td.mat-cell {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.mat-header-cell, .mat-cell {
+  text-align: left;
+  color: #333;
+}
+
+/* Button Styles */
+.button {
+  padding: 10px 20px; /* Increased padding */
+  font-size: 1rem; /* Slightly increased font size */
+  font-weight: 600;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .dialog-header {
+    padding: 10px 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem; /* Keep a larger heading size on wider screens */
+  }
+
+  th.mat-header-cell, td.mat-cell {
+    padding: 12px;
+  }
+
+  .table-container {
+    padding: 0 20px; /* Slightly reduced padding */
+    max-width: 900px; /* Increased max width for larger screen */
+  }
+}
+
+@media (max-width: 768px) {
+  .dialog-header {
+    padding: 8px 16px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  th.mat-header-cell, td.mat-cell {
+    padding: 10px;
+  }
+
+  .table-container {
+    padding: 0 16px;
+    max-width: 700px; /* Increased max width */
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialog-header {
+    padding: 6px 12px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  th.mat-header-cell, td.mat-cell {
+    padding: 8px;
+  }
+
+  .table-container {
+    padding: 0 10px;
+    max-width: 100%; /* Full width for small screens */
+  }
+
+  .button {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}

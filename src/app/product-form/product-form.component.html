@@ -1,0 +1,67 @@
+<div class="form-container">
+    <mat-card>
+      <div class="card-header">
+        <mat-card-title>Update Product</mat-card-title>
+        <button mat-icon-button class="close-icon" (click)="closeDialog()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Product Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Product Name</mat-label>
+          <input matInput formControlName="productName" required />
+        </mat-form-field>
+  
+        <!-- Product Type -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Product Type</mat-label>
+          <mat-select formControlName="type" required>
+            <mat-option value="vegetable">Vegetable</mat-option>
+            <mat-option value="grocery">Grocery</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <!-- Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+  
+        <!-- Wholesale Price -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Wholesale Price</mat-label>
+          <input matInput formControlName="wholesalePrice" type="number" required />
+        </mat-form-field>
+  
+        <!-- Units -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Units</mat-label>
+          <input matInput formControlName="units" required />
+        </mat-form-field>
+  
+        <!-- Image URL -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Image URL</mat-label>
+          <input matInput formControlName="imageurl" required />
+        </mat-form-field>
+        <!-- <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Select Area</mat-label>
+            <mat-select formControlName="area" required>
+              <mat-option *ngFor="let area of availableAreas" [value]="area.areaId">{{ area.areaName }}>
+                
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+  
+        <!-- Submit Button -->
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">
+            Update Product
+          </button>
+        </div>
+      </form>
+    </mat-card>
+</div>

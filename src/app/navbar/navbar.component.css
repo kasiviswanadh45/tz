@@ -1,0 +1,117 @@
+.custom-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color:#32ae47; /* Light green background */
+  z-index: 1000; /* Ensures it stays on top */
+  display: flex;
+  align-items: center;
+  padding: 0 20px; /* Slightly increased padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 12px; /* Increased margin for better spacing */
+  background-color: white;
+  border-radius: 50px;
+  padding: 4px; /* Added padding for a better fit within the logo area */
+}
+
+.title {
+  font-size: 1.6rem; /* Slightly increased font size for visibility */
+  font-weight: bold;
+  color: white;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.navbar-dropdowns {
+  display: flex;
+  gap: 16px;
+  margin-top: 22px;
+  align-items: center; /* Ensure dropdowns are vertically centered */
+}
+
+.mat-form-field {
+  min-width: 160px; /* Increased minimum width for better dropdown appearance */
+  border-radius: 8px;
+}
+
+.mat-select {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.mat-select:hover {
+  background-color: #e0e0e0;
+}
+
+.state-dropdown .mat-select,
+.district-dropdown .mat-select,
+.area-dropdown .mat-select {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .navbar-dropdowns {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0; /* Adjusted padding for better spacing */
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-dropdowns {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-toolbar {
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start for better layout on small screens */
+    padding: 10px; /* Added padding for mobile view */
+  }
+
+  .logo-container {
+    width: 100%; /* Make logo container full width */
+    justify-content: center; /* Center the logo */
+    margin-bottom: 10px; /* Add space between logo and dropdowns */
+  }
+
+  .navbar-dropdowns {
+    width: 100%;
+    gap: 8px; /* Reduced gap for smaller screens */
+    padding: 10px 0;
+  }
+}
+
+.buttonnew{
+  font-weight: 600px;
+  color:white ;
+}
+.mdc-button .mdc-button__label {
+  position: relative;
+  color: yellow;
+  font-size: 24px;
+}
+.mat-mdc-form-field-infix{
+  border-radius: 50%;
+}

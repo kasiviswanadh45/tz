@@ -1,0 +1,14 @@
+<div *ngFor="let carousel of carousels; let i = index" class="slide">
+    <!-- <h3>{{ carousel.title }}</h3> -->
+    <mat-card>
+      <img mat-card-image [src]="carousel.items[carousel.currentIndex].imageUrl" alt="{{ carousel.items[carousel.currentIndex].caption }}" class="img">
+      <mat-card-content>
+        <!-- <p>{{ carousel.items[carousel.currentIndex].caption }}</p> -->
+      </mat-card-content>
+    </mat-card>
+    <div>
+      <!-- <button mat-button (click)="prev(i)">Prev</button> -->
+      <!-- <button mat-button (click)="next(i)">Next</button> -->
+    </div>
+  </div>
+  

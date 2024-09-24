@@ -1,0 +1,90 @@
+/* Full-screen background with a light color */
+body {
+  margin: 0;
+  background-color: #f0f4f8; /* Light gray background */
+  font-family: Arial, sans-serif;
+}
+
+/* Center the signup card */
+.signup-card {
+  max-width: 800px; /* Maximum width for the card */
+  width: 90%; /* Responsive width */
+  margin: 50px auto; /* Center the card */
+  padding: 20px; /* Padding inside the card */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  background-color: white; /* Card background */
+}
+
+/* Title styling */
+.dialog-title {
+  font-size: 28px; /* Title size */
+  font-weight: 600; /* Bold title */
+  color: #333; /* Dark text color */
+  text-align: center;
+  margin-bottom: 20px; /* Space below the title */
+}
+
+/* Form row for input fields */
+.form-row {
+  display: flex;
+  flex-wrap: wrap; /* Wrap fields on smaller screens */
+  justify-content: space-between; /* Space between fields */
+  margin-bottom: 16px; /* Space between rows */
+}
+
+/* Form field styling */
+.form-field {
+  flex: 1 1 calc(33% - 16px); /* Allow fields to grow and adjust width */
+  margin-right: 8px; 
+  /* Right margin for spacing */
+}
+
+.form-field:last-child {
+  margin-right: 0;
+  border-radius: 10px; /* Remove margin for the last field */
+}
+
+/* Button styles */
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* Full-width button */
+button {
+  width: 100%; /* Full width button */
+  background-color: #00796b; /* Darker teal for button */
+  color: white; /* White text color */
+  font-size: 16px; /* Button text size */
+  padding: 10px; /* Button padding */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #004d40; /* Darker shade on hover */
+}
+
+/* Error message styles */
+mat-error {
+  font-size: 12px; /* Smaller error message */
+  color: red; /* Red color for errors */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column; /* Stack fields vertically */
+  }
+
+  .form-field {
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 16px; /* Space between fields */
+  }
+
+  .signup-card {
+    width: 95%; /* Adjust width for mobile */
+    padding: 15px; /* Adjust padding */
+  }
+}

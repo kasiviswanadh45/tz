@@ -1,0 +1,68 @@
+/* General container styling */
+mat-card {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling for the buttons */
+button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Primary button (Login) */
+button[color="primary"] {
+  background-color: #1976d2;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Cancel button */
+button[type="button"] {
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Register link */
+.register-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the error messages */
+mat-error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+}
+
+/* Styling for the password toggle icon */
+mat-icon {
+  cursor: pointer;
+}
+
+/* Centering content within the card */
+h1 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+  color: #1976d2;
+}

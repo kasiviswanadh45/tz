@@ -1,0 +1,145 @@
+<div class="auto-scroll-container">
+  <div class="auto-scroll-content">
+    <!-- Add your content here -->
+ <p>e-NAM welcomes all the FPOs & requests to register for trading on e-NAM to avail benefits from the transparent system. Kindly reach us on our Toll-Free No.1800 270 0224    |    ई-नाम सभी कृषि उत्पादक संगठनो का पंजीकरण एवं पारदर्शी प्रणाली द्वारा व्यापार करने के लिए स्वागत करता है। अतिरिक्त जानकारी के लिए कृपया हमारे टोल-फ्री नंबर 1800 270 0224 पर संपर्क करें   |</p>
+  </div>
+</div>
+
+
+<div class="updatesContainer">
+  <h3 style="font-weight: 800; color: #cc0404; font-size: 28px" class="single-update-1">
+    Latest  Updates
+  </h3>
+  <h3 style="font-weight: 800; color: #cc0404; font-size: 28px" class="single-update-2">
+    More Updates
+  </h3>
+</div>
+
+<div class="main-container">
+  <!-- Left Section -->
+
+  <div class="left-section" id="scrollContainer">
+    <div class="scroll-content">
+      <app-latest-updates></app-latest-updates>
+    </div>
+  </div>
+
+  <!-- Middle Section -->
+  <div class="middle-section">
+    <div class="radio-group-container">
+      <mat-radio-group
+        [(ngModel)]="selectedType"
+        (change)="onTypeChange($event.value)"
+      >
+        <mat-radio-button value="all">All</mat-radio-button>
+        <mat-radio-button value="vegetable">Vegetables</mat-radio-button>
+        <mat-radio-button value="grocery">Groceries</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Image Column -->
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>Image</th>
+          <td mat-cell *matCellDef="let product">
+            <img
+              [src]="product.imageUrl"
+              alt="{{ product.productName }}"
+              width="50"
+              *ngIf="product.imageUrl"
+            />
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let product">{{ product.productName }}</td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let product">{{ product.description }}</td>
+        </ng-container>
+
+        <!-- Wholesale Price Column -->
+        <ng-container matColumnDef="wholesalePrice">
+          <th mat-header-cell *matHeaderCellDef>Wholesale Price</th>
+          <td mat-cell *matCellDef="let product">
+            {{ product.wholesalePrice | currency : "INR" : "symbol" }}
+          </td>
+        </ng-container>
+
+        <!-- Units Column -->
+        <ng-container matColumnDef="units">
+          <th mat-header-cell *matHeaderCellDef>Units</th>
+          <td mat-cell *matCellDef="let product">{{ product.units }}</td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let product">
+            <button
+              style="background-color: #c6e451; color: white"
+              mat-raised-button
+              color="primary"
+              (click)="openPriceHistoryDialog()"
+            >
+              View History
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <div class="paginator-container">
+      <mat-paginator
+        [length]="totalLength"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[5, 10, 20]"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+
+  <!-- Right Section -->
+  <!-- <h3>More Updates</h3> -->
+  <!-- <h3 style="font-weight: 800;color:#cc0404;font-size: 28px;">Latest Price Updates</h3> -->
+
+  <div class="right-section" id="scrollContainerRight">
+    <div class="scroll-content">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
+        consequatur quas libero odio sapiente ullam incidunt atque possimus
+        maiores rem nesciunt soluta sed vero ad corporis eaque magnam,
+        cupiditate porro!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
+        consequatur quas libero odio sapiente ullam incidunt atque possimus
+        maiores rem nesciunt soluta sed vero ad corporis eaque magnam,
+        cupiditate porro!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
+        consequatur quas libero odio sapiente ullam incidunt atque possimus
+        maiores rem nesciunt soluta sed vero ad corporis eaque magnam,
+        cupiditate porro!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
+        consequatur quas libero odio sapiente ullam incidunt atque possimus
+        maiores rem nesciunt soluta sed vero ad corporis eaque magnam,
+        cupiditate porro!
+      </p>
+    </div>
+  </div>
+</div>

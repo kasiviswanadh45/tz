@@ -1,0 +1,58 @@
+<div class="upload-container">
+  <div class="header">
+    <h2>Upload Excel Data</h2>
+    <button mat-icon-button class="close-icon" (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- Download Sample Excel File -->
+  <div class="download-sample">
+    <a href="/assets/sample-template.xlsx" download class="btn download-btn">
+      <mat-icon>download</mat-icon> Download Sample Excel File
+    </a>
+  </div>
+
+  <!-- File Upload Form -->
+  <form enctype="multipart/form-data">
+    <div class="file-input-container">
+      <label for="fileUpload" class="file-label">
+        <mat-icon class="upload-icon">upload_file</mat-icon>
+        <span class="file-name">{{ fileName || 'Choose Excel File' }}</span>
+      </label>
+      <input type="file" id="fileUpload" (change)="onFileChange($event)" accept=".xls,.xlsx" required />
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-container">
+      <button type="button" class="btn upload-btn" (click)="onSubmit()">
+        <mat-icon>cloud_upload</mat-icon> Upload
+      </button>
+      <button type="button" class="btn process-btn" (click)="onProcessData()">
+        <mat-icon>play_circle_filled</mat-icon> Process Data
+      </button>
+    </div>
+  </form>
+
+  <!-- Upload Progress Bar -->
+  <div *ngIf="isUploading" class="progress-container">
+    <mat-progress-bar mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+    <p>{{ uploadProgress }}% uploaded</p>
+  </div>
+
+  <!-- Processing Spinner -->
+  <div *ngIf="isProcessing" class="processing-spinner">
+    <mat-spinner></mat-spinner>
+    <p>Processing data...</p>
+  </div>
+
+  <!-- Upload Status Message -->
+  <div *ngIf="uploadStatus" class="status-message">
+    <p>{{ uploadStatus }}</p>
+  </div>
+
+  <!-- Processing Status Message -->
+  <div *ngIf="processStatus" class="status-message">
+    <p>{{ processStatus }}</p>
+  </div>
+</div>

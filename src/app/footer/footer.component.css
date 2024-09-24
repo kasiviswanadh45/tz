@@ -1,0 +1,60 @@
+/* src/app/footer/footer.component.css */
+.footer {
+    background-color:#cc0404; /* Dark background color */
+    padding: 5px 0;
+    text-align: center;
+    color: white;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .social-icon {
+    color: white;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #f39c12; /* Light up color on hover */
+  }
+  
+  /* Icon specific colors (optional) */
+  .whatsapp-icon {
+    color: #25D366; /* WhatsApp green color */
+  }
+  
+  .instagram-icon {
+    color: #E1306C; /* Instagram pink color */
+  }
+  
+  .twitter-icon {
+    color: #1DA1F2; /* Twitter blue color */
+  }
+  
+  .facebook-icon {
+    color: #4267B2; /* Facebook blue color */
+  }
+  
+  .footer-copyright {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #cccccc;
+  }
+  

@@ -1,0 +1,40 @@
+<mat-card>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1>Login</h1>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter your email" type="email">
+      <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Enter your password">
+      <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        Password must be at least 6 characters long.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-radio-group formControlName="isAdmin">
+      <mat-radio-button value="true">Login as Admin</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-error *ngIf="loginError">{{loginError}}</mat-error>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+    <button mat-button type="button" (click)="closeDialog()">Cancel</button>
+
+    <!-- Add Forgot Password and Reset Password links -->
+    <div class="login-actions">
+      <a (click)="openForgotPasswordDialog()">Forgot Password?</a> |
+      <a (click)="openResetPasswordDialog()">Reset Password</a>
+    </div>
+  </form>
+  <p class="register-link">Don't have an account? <a href="/register">Register here</a></p>
+</mat-card>

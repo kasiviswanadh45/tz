@@ -1,0 +1,19 @@
+.dialog-content {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dialog-content button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
